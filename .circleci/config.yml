@@ -15,6 +15,9 @@ jobs:
     steps:
       - checkout
       - run:
+          command: |
+            cd spring-boot-student-app-api/
+      - run:
           name: "maven build"
           command: "mvn clean package"
 
