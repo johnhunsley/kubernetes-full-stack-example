@@ -23,6 +23,7 @@ jobs:
             mvn clean package
       - run:
           command: |
+            cd spring-boot-student-app-api/
             docker build -t  johnhunsley/student-app-api ./
             docker push johnhunsley/student-app-api
 
