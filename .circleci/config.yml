@@ -17,9 +17,7 @@ jobs:
       - run:
           command: |
             cd spring-boot-student-app-api/
-      - run:
-          name: "maven build"
-          command: "mvn clean package"
+            mvn clean package
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
