@@ -23,6 +23,7 @@ jobs:
           command: |
             mkdir -p /tmp/artifacts
             cp spring-boot-student-app-api/target/*.jar /tmp/artifacts/student-app.jar
+            cp spring-boot-student-app-api/Dockerfile /tmp/artifacts/
       - store_artifacts:
           path: /tmp/artifacts
 
@@ -35,7 +36,7 @@ jobs:
     steps:
       - run:
           command: |
-            curl -H "Circle-Token:  $CIRCLE_TOKEN" https://circleci.com/api/v1.1/project/:vcs-type/:username/:project/latest/artifacts
+            curl -H "Circle-Token: $CIRCLE_TOKEN" https://circleci.com/api/v1.1/project/github/johnhunsley/kubernetes-full-stack-example/latest/artifacts 
             docker build -t  johnhunsley/student-app-api ./
             docker push johnhunsley/student-app-api
 
