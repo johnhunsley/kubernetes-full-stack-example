@@ -34,6 +34,8 @@ jobs:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
+      - setup_remote_docker:
+          version: 20.10.14
       - run:
           command: |
             curl -H "Circle-Token: $CIRCLE_TOKEN" https://circleci.com/api/v1.1/project/github/johnhunsley/kubernetes-full-stack-example/latest/artifacts \
