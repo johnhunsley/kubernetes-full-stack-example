@@ -21,6 +21,10 @@ jobs:
           command: |
             cd spring-boot-student-app-api/
             mvn clean package
+      # Install via apk on alpine based images
+      - run:
+          name: Install Docker client
+          command: apk add docker-cli
       - run:
           command: |
             cd spring-boot-student-app-api/
