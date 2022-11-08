@@ -36,7 +36,7 @@ jobs:
     steps:
       - run:
           command: |
-            curl -H "Circle-Token: $CIRCLE_TOKEN" https://circleci.com/api/v1.1/project/github/johnhunsley/kubernetes-full-stack-example/latest/artifacts .
+            curl -H "Circle-Token: $CIRCLE_TOKEN" https://circleci.com/api/v1.1/project/github/johnhunsley/kubernetes-full-stack-example/latest/artifacts
       - run:
           command: |
             docker build -t  johnhunsley/student-app-api ./ 
