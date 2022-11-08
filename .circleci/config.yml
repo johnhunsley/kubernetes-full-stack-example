@@ -43,6 +43,7 @@ jobs:
                | wget --verbose --header "Circle-Token: $CIRCLE_TOKEN" -P target/ --input-file -
       - run:
           command: |
+            mv target/Dockerfile .
             docker build -t  johnhunsley/student-app-api ./ 
             docker push johnhunsley/student-app-api
 
