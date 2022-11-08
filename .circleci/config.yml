@@ -24,7 +24,7 @@ jobs:
       # Install via apk on alpine based images
       - run:
           name: Install Docker client
-          command: apk add docker-cli
+          command: yum install docker-cli -y
       - run:
           command: |
             cd spring-boot-student-app-api/
