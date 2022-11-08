@@ -10,9 +10,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: cimg/openjdk:11.0.17
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -21,10 +19,17 @@ jobs:
           command: |
             cd spring-boot-student-app-api/
             mvn clean package
-      # Install via apk on alpine based images
-      - run:
-          name: Install Docker client
-          command: yum install docker-cli -y
+      - store_artifacts:
+          path: spring-boot-student-app-api/target/*.jar
+          destination: spring-boot-student-app.jar
+
+  deploy:
+    docker:
+      - image: cimg/base:2022.06
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    steps:
       - run:
           command: |
             cd spring-boot-student-app-api/
@@ -37,3 +42,4 @@ workflows:
   build-workflow:
     jobs:
       - build
+      - deploy
