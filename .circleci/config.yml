@@ -45,7 +45,7 @@ jobs:
           command: |
             mv target/Dockerfile .
             docker build -t  $DOCKERHUB_USERNAME/student-app-api ./ 
-            docker login
+            docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
             docker push $DOCKERHUB_USERNAME/student-app-api
 
 # Invoke jobs via workflows
