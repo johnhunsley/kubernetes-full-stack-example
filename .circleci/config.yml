@@ -44,8 +44,8 @@ jobs:
       - run:
           command: |
             mv target/Dockerfile .
-            docker build -t  johnhunsley/student-app-api ./ 
-            docker push johnhunsley/student-app-api
+            docker build -t  $DOCKERHUB_USERNAME/student-app-api ./ 
+            docker push $DOCKERHUB_USERNAME/student-app-api
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
