@@ -23,6 +23,7 @@ public class StudentController {
 
     @GetMapping("/students")
     public ResponseEntity<List<Student>> getAllStudents(@RequestParam(required = false) String firstName) {
+        System.out.println("#### GET all Students......");
         try {
             List<Student> students = new ArrayList<Student>();
 
@@ -33,9 +34,11 @@ public class StudentController {
                         .forEach(students::add);
 
             if (students.isEmpty()) {
+                System.out.println("No Students, returning 204.....");
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
 
+            System.out.println("Returning " + students.size() + " students");
             return new ResponseEntity<>(students, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

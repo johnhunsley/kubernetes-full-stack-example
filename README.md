@@ -15,3 +15,6 @@ Source code for blog post https://nirajsonawane.github.io/2020/04/25/Deploy-Reac
    ``./k8s/student-api-mongo.sh``
 5. expose the port from the minikube host to the ingress   
       ``sudo minikube tunnel``
+6. Make a curl request into the api
+
+   ``curl -v -X GET http://10.109.194.223:8080/students/``
