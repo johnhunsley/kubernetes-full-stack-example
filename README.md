@@ -18,3 +18,8 @@ Source code for blog post https://nirajsonawane.github.io/2020/04/25/Deploy-Reac
 6. Make a curl request into the api
 
    ``curl -v -X GET http://10.109.194.223:8080/students/``
+7. After successfull build and push to docker hub, update the deployment and force a new pod and image pull
+   
+   ``kubectl rollout restart deployment/student-app-api``
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/johnhunsley/kubernetes-full-stack-example/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/johnhunsley/kubernetes-full-stack-example/tree/master)
