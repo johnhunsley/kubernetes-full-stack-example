@@ -8,8 +8,8 @@ spec:
   rules:
   - http:
       paths:
-        - path: /api/?(.*)
-          pathType: Exact
+        - path: /api
+          pathType: Prefix
           backend:
             service:
               name: student-app-api

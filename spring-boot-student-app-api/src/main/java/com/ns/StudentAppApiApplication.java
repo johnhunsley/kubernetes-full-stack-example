@@ -16,14 +16,14 @@ public class StudentAppApiApplication {
 		SpringApplication.run(StudentAppApiApplication.class, args);
 	}
 
-	@Bean
-	ApplicationRunner init(StudentRepository studentRepository) {
-		return (ApplicationArguments args) -> dataSetup(studentRepository);
-	}
-
-	private void dataSetup(StudentRepository studentRepository) {
-		System.out.println("Adding student");
-		Student student = new Student("Bob","Monkhouse");
-		studentRepository.save(student);
-	}
+//	@Bean
+//	ApplicationRunner init(StudentRepository studentRepository) {
+//		return (ApplicationArguments args) -> dataSetup(studentRepository);
+//	}
+//
+//	private void dataSetup(StudentRepository studentRepository) {
+//		System.out.println("Adding student");
+//		Student student = new Student("Bob","Monkhouse");
+//		studentRepository.save(student);
+//	}
 }
