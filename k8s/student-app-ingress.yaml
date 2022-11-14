@@ -8,13 +8,6 @@ spec:
   rules:
   - http:
       paths:
-        - path: /?(.*)
-          pathType: Exact
-          backend:
-            service:
-              name: student-app-client-service
-              port:
-                number: 80
         - path: /api/?(.*)
           pathType: Exact
           backend:

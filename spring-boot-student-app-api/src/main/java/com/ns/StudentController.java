@@ -13,6 +13,7 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping(path = "/api")
 @AllArgsConstructor
 public class StudentController {
 
